@@ -46,19 +46,57 @@ def checkBipartite(graph,root=0):
 if __name__ == "__main__":
 
 	#Matrix Representation of graph
-	graph = [[0,1,0],\
+	# Bipartitie
+	graph9 = [[0,1,0],\
 			 [1,0,1],\
 			 [0,1,0]]
-	graph = [[1,1,1],\
+	# Not Bipartitie
+	graph8 = [[1,1,1],\
 			 [1,1,0],\
 			 [1,0,1]]
-	graph = [[0,1,0],\
-			 [1,0,1],\
-			 [0,1,0]]
+	# Not Bipartitie
+	graph7 = [[0,1,0],\
+			  [1,0,1],\
+			  [0,1,1]]
+	# Bipartitie
+	graph6 = [[0,0,0],\
+			  [1,0,1],\
+			  [0,0,0]]
+	# Bipartitie
+	graph5 = [[0,1,0],\
+			  [1,1,1],\
+			  [0,1,0]]
+	# Bipartitie
+	graph4 = [[0,1,0,1],\
+			  [1,0,1,1],\
+			  [0,1,0,1],\
+			  [1,0,1,0]]
+	# Bipartitie
+	graph3 = [[0,1,0,1,0],\
+			  [1,0,1,0,0],\
+			  [0,1,0,1,0],\
+			  [1,0,1,0,1],\
+			  [0,1,0,1,0]]
+	# Bipartitie
+	graph2 = [[0,1,0,1,0],\
+			  [1,0,1,0,1],\
+			  [0,1,0,1,0],\
+			  [1,1,1,0,1],\
+			  [0,1,0,1,0]]
 
-	#graph = []
+	#Diagnol Relation - Bipartite
+	graph1 = [[1,0,0,0,0,0,0,0],\
+			  [0,1,0,0,0,0,0,0],\
+			  [0,0,1,0,0,0,0,0],\
+			  [0,0,0,1,0,0,0,0],\
+			  [0,0,0,0,1,0,0,0],\
+			  [0,0,0,0,0,1,0,0],\
+			  [0,0,0,0,0,0,1,0],\
+			  [0,0,0,0,0,0,0,1]]
+	#Null Graph
+	graph0 = [] 
 
-	if checkBipartite(graph):
+	if checkBipartite(graph7):
 		print "This Graph is bipartite"
 	else:
 		print "This Graph is not bipartite"
