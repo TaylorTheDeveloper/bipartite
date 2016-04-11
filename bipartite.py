@@ -34,8 +34,11 @@ def checkBipartite(graph,root=0):
 					colors[child] = 1 - colors[node]
 					queue.append(child)
 			#An edge exists but already connects to same color
-			else if ( graph[node][child] and colors[node] == colors[child]:
+			elif graph[node][child] and colors[node] == colors[child]:
 				return False
+
+	#Reached end without one edge connecting two verticies of the same color
+	return True 
 
 
 
