@@ -10,7 +10,7 @@ def checkBipartite(graph,root=0):
 	#True = Purple
 	#False = Green
 	#None = Unpainted
-	colors = [None for i in range(0,len(graph))]
+	colors = [-1 for i in range(0,len(graph))]
 	queue = deque()
 
 	if not graph:
@@ -21,7 +21,7 @@ def checkBipartite(graph,root=0):
 		print "Error: Select Valid Root"
 		return False
 
-	colors[root] = True
+	colors[root] = 1
 	queue.append(root)
 
 	#Perform Breadth First Search and mark nodes of the graph the proper color
@@ -29,9 +29,13 @@ def checkBipartite(graph,root=0):
 		node = queue.popleft()
 
 		for child in range(0,len(graph)):
-			if graph[node][child] == 1 and colors[node] == True:
-				print "p",node
-
+			if graph[node][child]:
+				if colors[node] > 0:
+					colors[child] = 1 - colors[node]
+					queue.append(child)
+			#An edge exists but already connects to same color
+			else if ( graph[node][child] and colors[node] == colors[child]:
+				return False
 
 
 
@@ -39,9 +43,15 @@ def checkBipartite(graph,root=0):
 if __name__ == "__main__":
 
 	#Matrix Representation of graph
+	graph = [[0,1,0],\
+			 [1,0,1],\
+			 [0,1,0]]
 	graph = [[1,1,1],\
-			 [1,1,1],\
-			 [1,1,1]]
+			 [1,1,0],\
+			 [1,0,1]]
+	graph = [[0,1,0],\
+			 [1,0,1],\
+			 [0,1,0]]
 
 	#graph = []
 
